@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/LoadingScreen.css">
+    <link rel="stylesheet" href="./css/Map.css">
+    <link rel="stylesheet" href="./css/Scene.css">
+    <link rel="stylesheet" href="./css/PayslipDetective.css">
+    <link rel="stylesheet" href="./css/MapProgressTracker.css">
+    <link rel="stylesheet" href="./css/HintSystem.css">
+    <link rel="stylesheet" href="./css/TitleScreen.css">
+    <link rel="stylesheet" href="./css/DialogueHistory.css">
+    <link rel="stylesheet" href="./css/KeyframeAnimations.css">
+    <link rel="stylesheet" href="./css/TitleButtons.css">
+    <link rel="stylesheet" href="./css/SceneView.css">
+    <link rel="stylesheet" href="./css/Modal.css">
+    <link rel="stylesheet" href="./css/JargonGlossary.css">
+    <link rel="stylesheet" href="./css/Edit.css">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FINOVITY - Financial Literacy RPG</title>
+ 
+</head>
+<body>
+    <div id="loadingScreen" class="loading-screen active">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h1 class="loading-title">FINOVITY</h1>
+            <p class="loading-subtitle">A Digital Learning Platform for Responsible Financial Management</p>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress"></div>
+            </div>
+            <p class="loading-text">Loading your financial adventure...</p>
+        </div>
+    </div>
+
+    <div id="gameContainer">
+        <div class="edit-indicator" id="editIndicator"></div>
+        
+        <div id="topBar">
+            <button class="top-button" id="menuButton" aria-label="Open menu" style="display: none;">☰</button>
+            <div style="display: flex; flex-direction: row; gap: 8px;">
+                <button class="top-button" id="returnMapButton" aria-label="Return to map" style="display: none;">🗺️</button>
+                <button class="top-button" id="recapButton" aria-label="View dialogue recap" style="display: none;">📖</button>
+            </div>
+            <!--    -->
+            <div id="fwpDisplay">
+                <span></span>
+                <span id="fwpValue"></span>
+            </div>
+            <button class="top-button" id="glossaryButton" aria-label="Open glossary" style="display: none;">?</button>
+        </div>
+        
+        <div id="mapView"></div>
+        
+        <div id="sceneView">
+            <div id="sceneBackground"></div>
+            <div id="characterArea"></div>
+            <button id="skipButton" title="Skip dialogue">⏭️ Skip</button>
+            <div id="dialogueBox">
+                <div id="speakerName"></div>
+                <div id="dialogueText"></div>
+                <div id="choicesContainer"></div>
+                <button id="continueButton" style="display: none;">Continue</button>
+            </div>
+        </div>
+        
+        <div id="miniGameOverlay">
+            <button id="skipActivityButton" title="Skip activity and return to map">⏭️ Skip</button>
+            <div class="minigame-header" id="miniGameTitle"></div>
+            <div class="minigame-instructions" id="miniGameInstructions"></div>
+            <div id="miniGameContent"></div>
+        </div>
+        
+        <div class="modal-overlay" id="menuModal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('menuModal')" aria-label="Close menu">×</button>
+                <div class="modal-header">Menu</div>
+                <div id="menuButtonsContainer" style="display: flex; flex-direction: column; gap: 16px;">
+                    <button class="choice-button" onclick="returnToMap()">Return to Map</button>
+                    <button class="choice-button" onclick="openGlossary()">Jargon Buster</button>
+                    <button class="choice-button" onclick="openSandbox()">Tax Form Sandbox</button>
+                    <button class="choice-button" onclick="returnToWelcomeScreen()">Back to Title Screen</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-overlay" id="glossaryModal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('glossaryModal')" aria-label="Close glossary">×</button>
+                <div class="modal-header">Jargon Buster</div>
+                <div id="glossaryContent"></div>
+            </div>
+        </div>
+        
+        <div class="modal-overlay" id="sandboxModal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('sandboxModal')" aria-label="Close sandbox">×</button>
+                <div class="modal-header">Tax Form Sandbox</div>
+                <div id="sandboxContent"></div>
+            </div>
+        </div>
+        
+        <div class="modal-overlay" id="recapModal">
+            <div class="modal-content">
+                <button class="modal-close" onclick="closeModal('recapModal')" aria-label="Close recap">×</button>
+                <div class="modal-header">📖 Dialogue Recap</div>
+                <div id="recapContent"></div>
+            </div>
+        </div>
+        
+        <div id="achievementNotification"></div>
+        <div id="feedbackMessage" class="feedback-message"></div>
+    </div>
+    </div>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/AssetPath.js"></script>
+    <script src="./js/GameConfiguration.js"></script>
+    <script src="./js/TitleScreen.js"></script>
+    <script src="./js/MapRendering.js"></script>
+    <script src="./js/ModuleFunctions.js"></script>
+    <script src="./js/MinigameConditions.js"></script>
+    <script src="./js/PayslipDetective.js"></script>
+    <script src="./js/FormFiller.js"></script>
+    <script src="./js/TaxReturnCalculator.js"></script>
+    <script src="./js/IncomeExpenseCalculator.js"></script>
+    <script src="./js/InvestmentTaxCalculator.js"></script>
+    <script src="./js/VAT_Calculator.js"></script>
+    <script src="./js/JargonGlossary.js"></script>
+    <script src="./js/Sandbox.js"></script>
+    <script src="./js/Quizzes.js"></script>
+    <script src="./js/AudioPlayback.js"></script>
+    <script src="./js/KeyboardControls.js"></script>
+    <script src="./js/MainRUN.js"></script>
+    <script src="./js/MinigameFunctions.js"></script>
+    <script src="./js/QuarterlyTaxCalculator.js"></script>
+    <script src="./js/EventListeners.js"></script>
+    <script src="./js/Edit.js"></script>
+    <script src="./js/Load&Save.js"></script>
+    <script src="./js/UserInterfaceEnhancement.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>

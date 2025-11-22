@@ -1,0 +1,24 @@
+/* ===================================
+       * EDIT MODE INDICATOR
+       * =================================== */
+
+      .edit-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+        z-index: 300;
+        display: none;
+      }
+
+      .editable {
+        outline: 2px dashed rgba(255,107,107,0.5);
+        cursor: pointer;
+      }
+
+      .editable:hover {
+        outline-color: rgba(255,107,107,0.8);
+        background: rgba(255,107,107,0.1);
+      }
